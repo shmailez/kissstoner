@@ -195,7 +195,7 @@ const getRandomPlayerIndex = (excludeIndex, maxPlayers) => {
               style={{ transform: `translate(${x}px, ${y}px)` }}
             >
               {/* <img src={player.avatar} alt={player.name} /> */}
-              <img src={`../../public/image/${player.id}.png`} alt={player.id} />
+              <img src={`./assets/${player.id}.png`} alt={player.id} />
             </div>
           );
         })}
