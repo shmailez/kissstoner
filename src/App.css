@@ -1,0 +1,256 @@
+/* Основное поле */
+.game-field {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f8ff;
+  background-image: url('/src/assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Круг игроков */
+.players-circle {
+  position: relative;
+  /* width: 500px;
+  height: 500px; */
+}
+
+.player-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  /* transition: transform 2s ease-in-out; */
+  /* -webkit-transition:
+  width 2s,
+  height 2s,
+  background-color 2s,
+  -webkit-transform 2s;
+transition:
+  width 2s,
+  height 2s,
+  background-color 2s,
+  transform 2s; */
+}
+
+.player-circle img {
+  width: 100%;
+  height: 100%;
+  /* border-radius: 50%; */
+  object-fit: cover;	
+  /* transition: transform 0.3s ease-in-out; */
+}
+
+.player-circle.active {
+  box-shadow: 0 0 30px 20px rgb(254, 254, 183);
+}
+
+.player-circle.target {
+  box-shadow: 0 0 30px 20px rgb(214, 10, 10);
+}
+
+.player-circle.target.kissing {
+  /* position: absolute; */
+  position: relative;
+  /* opacity: 0.5; */
+  width: 120px;
+  height: 120px;
+  top: -150px;
+  left: 50px;
+  /* transform: translate(-50%, -50%) scale(1.5); */
+  /* transition: transform 1s ease; */
+  transition-duration: 5s;
+  animation: flyTarget 3s infinite;
+  z-index: 5;
+}
+
+.player-circle.active.kissing {
+  /* position: absolute; */
+  position: relative;
+  /* opacity: 0.5; */
+  width: 120px;
+  height: 120px;
+  top: -100px;
+  left: -50px;
+  /* transform: translate(-50%, -50%) scale(1.5); */
+  /* transition: transform 1s ease; */
+  transition-duration: 5s;
+  animation: flyActive 3s infinite;
+  z-index: 5;
+}
+
+.bottle-container {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottle {
+  width: 120px;
+  height: 120px;
+  /* background: #32cd32; */
+  border-radius: 10%;
+  cursor: pointer;
+  background-image: url(./assets/Bottle.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.kiss-counter {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  font-size: 24px;
+  color: #333;
+}
+
+.countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: red;
+  z-index: 5;
+  animation: pulse 1s infinite;
+}
+
+.kiss-image {
+  position: absolute;
+  /* display: flex; */
+  height: 0px;
+  width: 0px;
+}
+
+.kiss-visible {
+  height: 100px;
+  width: 100px;
+  animation: kisser 3s infinite;
+  z-index: 10;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+
+  70% {
+      transform: scale(5);
+      opacity: 0.7;
+  }
+
+  90% {
+    transform: scale(7);
+    opacity: 0.6;
+  }
+
+  100% {
+      transform: scale(9);
+      opacity: 0.1;
+  }
+}
+
+@keyframes kisser {
+  0% {
+      transform: scale(1);
+  }
+
+  25% {
+      transform: scale(1.6);
+      opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(2);
+    opacity: 0.6;
+  }
+
+  75% {
+      transform: scale(2.5);
+      opacity: 0.1;
+  }
+}
+
+@keyframes flyActive {
+  /* 0% {
+    
+    top: 50%;
+    left: 50%;
+  }
+  75% {
+    top: 0%;
+    left: 0%;
+  }
+  100% {
+    top: 0%;
+    left: 100%;
+  } */
+
+  0% {
+    transform: scale(1);
+}
+
+100% {
+    transform: scale(2);
+    opacity: 0.7;
+}
+}
+
+@keyframes flyTarget {
+  /* 0% {
+    top: 0%;
+    left: 0%;
+  }
+  75% {
+    top: 50%;
+    left: 50%;
+  }
+  100% {
+    top: 0%;
+    left: 100%;
+  } */
+
+  /* 0% {
+    
+    top: 50%;
+    left: 50%;
+  }
+  75% {
+    top: 0%;
+    left: 0%;
+  }
+  100% {
+    top: 0%;
+    left: 100%;
+  } */
+  0% {
+    transform: scale(1);
+}
+
+25% {
+  transform: scale(1.2);
+}
+50% {
+  transform: scale(1.4);
+}
+75% {
+  transform: scale(1.6);
+}
+
+100% {
+    transform: scale(2);
+    opacity: 0.7;
+}
+}

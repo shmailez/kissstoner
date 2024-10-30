@@ -1,0 +1,87 @@
+/* Основное поле */
+.game-field {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f8ff;
+  }
+  
+  /* Круг игроков */
+  .players-circle {
+    position: relative;
+    width: 50vmin;
+    height: 50vmin;
+    min-width: 300px; /* Минимальный размер для малых экранов */
+    min-height: 300px;
+    max-width: 600px; /* Максимальный размер для больших экранов */
+    max-height: 600px;
+  }
+  
+  /* Стили для каждого игрока */
+  .player-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10vmin;
+    height: 10vmin;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .player-circle.active {
+    box-shadow: 0 0 10px 5px yellow;
+  }
+  
+  .player-circle.target {
+    box-shadow: 0 0 10px 5px red;
+  }
+  
+  /* Анимация поцелуя */
+  .player-circle.kissing {
+    width: 15vmin;
+    height: 15vmin;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  
+  /* Бутылка */
+  .bottle-container {
+    position: absolute;
+    width: 12vmin;
+    height: 12vmin;
+    min-width: 60px;
+    min-height: 60px;
+  }
+  
+  .bottle {
+    width: 100%;
+    height: 100%;
+    background: #32cd32;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+  
+  /* Таймер обратного отсчёта */
+  .countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8vmin;
+    color: red;
+  }
+  
+  /* Счётчик поцелуев */
+  .kiss-counter {
+    position: absolute;
+    top: 2vmin;
+    right: 2vmin;
+    font-size: 4vmin;
+    color: #333;
+  }
+  
