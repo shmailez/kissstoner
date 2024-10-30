@@ -28,6 +28,7 @@
   height: 80px;
   border-radius: 50%;
   overflow: hidden;
+  box-shadow: 0 0 5px 5px rgb(208, 208, 208);
   /* transition: transform 2s ease-in-out; */
   /* -webkit-transition:
   width 2s,
