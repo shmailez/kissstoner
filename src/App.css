@@ -39,10 +39,22 @@
 }
 
 .player-circle.target {
-  box-shadow: 0 0 30px 20px rgb(214, 10, 10);
+  box-shadow: 0 0 30px 20px rgb(247, 0, 255);
 }
 
-.player-circle.target.kissing {
+.kissing {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  top: -150px;
+  left: 50px;
+  transition-duration: 5s;
+  transition: transform .3s ease;
+  animation: flyTarget 3s infinite;
+  z-index: 5;
+}
+
+/* .player-circle.target.kissing {
   position: relative;
   width: 120px;
   height: 120px;
@@ -62,7 +74,7 @@
   transition-duration: 5s;
   animation: flyActive 3s infinite;
   z-index: 5;
-}
+} */
 
 .bottle-container {
   position: absolute;
@@ -169,7 +181,8 @@
 }
 
 @keyframes flyTarget {
-  0% {
+  /* 0% {
+
     transform: scale(1);
   }
   25% {
@@ -184,5 +197,26 @@
   100% {
       transform: scale(2);
       opacity: 0.7;
+  } */
+
+  from {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 5px 5px rgb(208, 208, 208);
+  }
+  to {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    top: -150px;
+    left: 50px;
+    transition-duration: 5s;
+    /* animation: flyTarget 3s infinite; */
+    z-index: 5;
   }
 }

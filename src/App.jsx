@@ -1,42 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import img from './assets/Kiss.png'
-import kissSound from './assets/kiss-sound.mp3'
-import bottleSound from './assets/spinning-sound.mp3'
 
-const playersArray = [
-  {
-    id: 1
-  },
-  {
-    id: 2
-  },
-  {
-    id: 3
-  },
-  {
-    id: 4
-  },
-  {
-    id: 5
-  },
-  {
-    id: 6
-  },
-  {
-    id: 7
-  },
-  {
-    id: 8
-  },
-  {
-    id: 9
-  },
-  {
-    id: 10
-  }
-]
-
+import Bottle from './components/Bottle';
+import { playersArray } from './data/players';
+import Kisser from './components/Kisser';
 
 const App = () => {
   const [players] = useState(playersArray);
@@ -61,26 +28,6 @@ const App = () => {
     window.addEventListener('resize', updateRadius);
     return () => window.removeEventListener('resize', updateRadius);
   }, []);
-
-
-  let kissAudio = new Audio(kissSound)
-  let bottleAudio = new Audio(bottleSound)
-
-  const startKiss = () => {
-    kissAudio.play()
-  }
-
-  const startBottle = () => {
-    bottleAudio.play()
-  }
-
-  if(isKissing) {
-    startKiss()
-  }
-
-  if (isSpinning) {
-    startBottle()
-  }
 
   const startSpin = () => {
     setIsCountdownActive(true);
@@ -139,9 +86,11 @@ const getRandomPlayerIndex = (excludeIndex, maxPlayers) => {
 
   return (
     <div className="game-field">
-      <div className="kiss-counter">Поцелуев: {kissCounter}</div>
-      <div><img className={`kiss-image ${isKissing && 'kiss-visible'}`} src={img} alt="" /></div>
-      {isCountdownActive && <div className="countdown">{countdown}</div>}
+
+      <Kisser
+      isKissing={isKissing}
+      kissCounter={kissCounter}/>
+
       <div className="players-circle">
           {players.map((player, index) => {
             const angle = (360 / players.length) * index;
@@ -158,18 +107,15 @@ const getRandomPlayerIndex = (excludeIndex, maxPlayers) => {
             );
           })}
       </div>
-      <div className="bottle-container">
-        <div
-          className="bottle"
-          style={{
-            // transform: `rotate(${isSpinning ? rotationAngle : 0}deg)`,
-            // transform: `rotate(${isSpinning ? rotationAngle : bottleAngle}deg)`,
-            transform: `rotate(${isSpinning ? rotationAngle : bottleIndex}deg)`,
-            transition: isSpinning ? 'transform 4s ease-out' : 'none',
-          }}
-          onClick={startSpin}
-        ></div>
-      </div>
+
+      <Bottle
+      isCountdownActive={isCountdownActive}
+      countdown={countdown}
+      isSpinning={isSpinning}
+      rotationAngle={rotationAngle}
+      bottleIndex={bottleIndex}
+      startSpin={startSpin}
+      />
     </div>
   );
 };
