@@ -12,29 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/*
-.player-circle {
-  position: absolute;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.player-circle.active {
-  box-shadow: 0 0 10px 2px yellow;
-}
 
-.bottle {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  transition: transform 4s ease-in-out;
-}
-.bottle.spinning {
-  animation: spin 4s linear infinite;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
 *{
   padding: 0;
   margin: 0;
