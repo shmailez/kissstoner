@@ -43,38 +43,26 @@
 }
 
 .kissing {
-  position: relative;
+  position: absolute;
   width: 120px;
   height: 120px;
-  top: -150px;
-  left: 50px;
+  top: 0px;
+  left: 0px;
   transition-duration: 5s;
   transition: transform .3s ease;
   animation: flyTarget 3s infinite;
   z-index: 5;
 }
 
-/* .player-circle.target.kissing {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  top: -150px;
-  left: 50px;
-  transition-duration: 5s;
-  animation: flyTarget 3s infinite;
-  z-index: 5;
+.player-circle.target.kissing {
+  top: -250px;
+  left: 150px;
 }
 
 .player-circle.active.kissing {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  top: -100px;
-  left: -50px;
-  transition-duration: 5s;
-  animation: flyActive 3s infinite;
-  z-index: 5;
-} */
+  top: -250px;
+  left: -150px;
+}
 
 .bottle-container {
   position: absolute;
@@ -213,8 +201,8 @@
     position: relative;
     width: 120px;
     height: 120px;
-    top: -150px;
-    left: 50px;
+    /* top: -150px;
+    left: 50px; */
     transition-duration: 5s;
     /* animation: flyTarget 3s infinite; */
     z-index: 5;
