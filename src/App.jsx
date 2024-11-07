@@ -102,7 +102,7 @@ const getRandomPlayerIndex = (excludeIndex, maxPlayers) => {
                 className={`player-circle ${index === activePlayerIndex ? 'active' : ''} ${index === targetPlayerIndex ? 'target' : ''} ${isKissing && (index === activePlayerIndex || index === targetPlayerIndex) ? 'kissing' : ''}`}
                 style={{transform: `translate(${isKissing && (index === activePlayerIndex || index === targetPlayerIndex) ? 0: x}px, ${isKissing && (index === activePlayerIndex || index === targetPlayerIndex) ? 0: y}px)` }}
               >
-                <img src={`../kissstoner/public/image/${player.id}.png`} alt={player.id} />
+                <img src={`../kissstoner/assets/${player.id}.png`} alt={player.id} />
               </div>
             );
           })}
